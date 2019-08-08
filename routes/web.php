@@ -12,13 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
-
-Route::get('/admin/data/user', function () {
-    return view('admin.user.data-user');
-})->name('admin.data.user');
+Route::get('/admin', 'AdminController@dashboard')->name('admin');
+Route::get('/admin/data/user', 'AdminController@dataUser')->name('admin.data.user');
