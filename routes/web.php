@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin');
+
+Route::get('/admin/data/user', function () {
+    return view('admin.user.data-user');
+})->name('admin.data.user');
