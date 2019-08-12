@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::get('/admin', 'AdminController@dashboard')->name('admin');
 Route::get('/admin/data/user', 'AdminController@dataUser')->name('admin.data.user');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
