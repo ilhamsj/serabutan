@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'content' => $faker->text($maxNbChars = 200),
+        'content' => $faker->text($maxNbChars = 300),
     ];
 });
