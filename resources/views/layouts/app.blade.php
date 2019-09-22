@@ -7,10 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title>{{ env('app_name') }} | @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,8 +17,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-            .h-100 {
+        .btn {
+            padding: 0.275rem 1.75rem;
+        }
+
+        .h-100 {
             min-height: 100vh;
+        }
+
+        .btn-indigo {
+            background-color: #f66d9b;
+            color: white;
         }
     </style>
 </head>
@@ -82,5 +88,20 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ secure_asset('js/app.js')}}"></script>
+    <script>
+        $('.card-body').hide();
+        $('.card-body:first-child').show();
+        $('.card-img-top').click(function (e) { 
+            e.preventDefault();
+            $(this).next().slideToggle();
+        });
+
+        $(".alert").delay(2000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+
+    </script>
+    @stack('scripts')
 </body>
 </html>

@@ -2,56 +2,59 @@
     $faker = \Faker\Factory::create();
 @endphp
 
-@extends('layouts.master')
+@extends('layouts.app')
 
 
 @section('title', 'Post')
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-10">
-        <div class="row">
-            <div class="col-12 col-md-12 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
-                                <p>
-                                    <h1>Hi, I'am
-                                        <span class="text-primary">amet consectetur</span>
-                                    </h1>
-                                    adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
-                                </p>
-                                <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
-                                <a href="" class="btn btn-primary  btn-sm">Follow</a>    
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-12 col-md-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
+                                    <p>
+                                        <h1>Hi, I'am
+                                            <span class="text-primary">amet consectetur</span>
+                                        </h1>
+                                        adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
+                                    </p>
+                                    <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                    <a href="" class="btn btn-primary  btn-sm">Follow</a>    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            @if (session('status'))
-            <div class="col-12">
-                <div class="alert alert-success" role="alert">
-                    <strong>{{ session('status') }}</strong>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                </div>
-            </div>
-            @endif
-
-            @foreach ($items as $item)
-                <div class="content col-6 col-md-4 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                {{ Str::limit($item->content, 100) }}
-                            </p>
-                        </div>
+                @if (session('status'))
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{ session('status') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
                     </div>
                 </div>
-            @endforeach
-            <div class="col-12">
-                {{$items->links()}}
+                @endif
+
+                @foreach ($items as $item)
+                    <div class="content col-6 col-md-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{ Str::limit($item->content, 100) }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="col-12">
+                    {{$items->links()}}
+                </div>
             </div>
         </div>
     </div>
