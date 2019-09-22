@@ -20,7 +20,7 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
                                         <h1>Hi, I'am
-                                            <span class="text-primary">{{$faker->name}}</span>
+                                            <span class="text-primary">{{ $items->first()->user->name }}</span>
                                         </h1>
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
@@ -60,7 +60,7 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
                                 </div>
                                 <div class="people col col-md-9">
-                                    <a href="{{ route('post.show', $item->user_id) }}">{{ $item->user->name }}</a>
+                                    <a href="">{{ $item->user->name }}</a>
                                 </div>
                             </div>
                         </div>

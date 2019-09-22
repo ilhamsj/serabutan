@@ -37,7 +37,10 @@ class PostController extends Controller
 
     public function show($id)
     {
-        //
+        return view('show')->with([
+            'items' => Post::where('user_id', $id)->orderBy('id', 'desc')->paginate(),
+            'author' => Post::find($id)
+        ]);
     }
 
     public function edit($id)
