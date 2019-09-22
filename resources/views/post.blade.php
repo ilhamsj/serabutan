@@ -30,6 +30,9 @@
                                         <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
                                         @include('_create')
                                     @endguest 
+                                    <a href="" id="displayGrid" class="btn btn-primary btn-sm">
+                                        <i data-feather="grid"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -44,10 +47,6 @@
                     </div>
                 </div>
                 @endif
-
-                <div class="col-12 mb-4">
-                    <a href="" id="displayGrid" class="btn btn-primary btn-sm">Display Grid</a>
-                </div>
             </div>
 
             <div class="row align-items-center">
@@ -88,8 +87,6 @@
 
         $('#displayGrid').click(function (e) { 
             e.preventDefault();
-            // $('.content').removeClass('col-6');
-            // $('.people').removeClass('col-12');
             $('.content').toggleClass('col-6', 'col-12');
         });
     </script>

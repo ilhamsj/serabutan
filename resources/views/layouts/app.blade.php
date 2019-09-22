@@ -89,7 +89,11 @@
         </main>
     </div>
     <script src="{{ secure_asset('js/app.js')}}"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
     <script>
+        feather.replace()
+        
         $(".alert").delay(2000).slideUp(200, function() {
             $(this).alert('close');
         });
