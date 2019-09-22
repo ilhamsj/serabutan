@@ -25,7 +25,9 @@
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
                                     @guest
-                                        <a href="#content" class="btn btn-primary  btn-sm">Follow</a>
+                                        <a href="#content" class="btn btn-indigo  btn-sm">
+                                            <i data-feather="heart"></i>
+                                        </a>
                                     @else
                                         @if ( $items->first()->user->id == Auth::user()->id)
                                             <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>

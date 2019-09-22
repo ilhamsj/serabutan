@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .h-100 {
-            min-height: 100vh;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'Register')
+
+@section('content')
     <div class="container">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-4">
@@ -63,11 +53,9 @@
                 </form>
                 <div>
                     Have an account ?
-                    <a href="{{ route('login') }}">Login</a>
-
+                    <a href="{{ route('login') }}">Register</a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection
