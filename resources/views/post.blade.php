@@ -32,7 +32,7 @@
             @foreach ($items as $item)
                 <div class="content col-6 col-md-4 mb-4">
                     <div class="card">
-                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&theme=vine&text='{{ $item->title }}'" alt="">
+                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
                         <div class="card-body">
                             <p class="card-text">
                                 {{ Str::limit($item->content, 100) }}
