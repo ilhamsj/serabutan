@@ -17,12 +17,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-        .btn {
-            padding: 0.275rem 1.75rem;
-        }
-
         .h-100 {
             min-height: 100vh;
+        }
+
+        .btn-x {
+            padding: 0.275rem 1.75rem;
         }
 
         .btn-indigo {
@@ -51,6 +51,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -67,6 +70,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('post.show', Auth::user()->id) }}">
+                                        Profile
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -93,7 +99,7 @@
 
     <script>
         feather.replace()
-        
+
         $(".alert").delay(2000).slideUp(200, function() {
             $(this).alert('close');
         });

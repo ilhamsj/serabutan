@@ -27,8 +27,10 @@
                                     @guest
                                         <a href="#content" class="btn btn-primary  btn-sm">Follow</a>
                                     @else
-                                        <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
-                                        @include('_create')
+                                        @if ( $items->first()->user->id == Auth::user()->id)
+                                            <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                            @include('_create')
+                                        @endif
                                     @endguest 
                                     <a href="" id="displayGrid" class="btn btn-primary btn-sm">
                                         <i data-feather="grid"></i>

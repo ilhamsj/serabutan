@@ -27,7 +27,9 @@
                                     @guest
                                         <a href="#content" class="btn btn-primary  btn-sm">Follow</a>
                                     @else
-                                        <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                        <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">
+                                            <i data-feather="plus"></i>
+                                        </a>
                                         @include('_create')
                                     @endguest 
                                     <a href="" id="displayGrid" class="btn btn-primary btn-sm">
@@ -78,12 +80,10 @@
 
 @push('scripts')
     <script>
-        $('.card-img-top').hover(function () {
+        $('.card-img-top').click(function (e) { 
+            e.preventDefault();
             $(this).next().slideToggle();
-            }, function () {
-                $(this).next().slideToggle();
-            }
-        );
+        });
 
         $('#displayGrid').click(function (e) { 
             e.preventDefault();
