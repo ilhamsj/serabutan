@@ -15,7 +15,7 @@
 <body>
 
 <div>
-    <div class="container py-4">
+    <div class="container">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-4">
                 <form method="POST" action="{{ route('login') }}">
@@ -54,15 +54,12 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary btn-block">
                             {{ __('Login') }}
                         </button>
-
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
+                    </div>
+                    <div class="form-group">
+                        Have an account ? <a href="{{route('register')}}">Register</a>
                     </div>
                 </form>
             </div>
