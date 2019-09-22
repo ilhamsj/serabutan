@@ -1,38 +1,46 @@
+@php
+    $faker = \Faker\Factory::create();
+@endphp
+
 @extends('layouts.master')
 
+
+@section('title', 'Post')
 @section('content')
-<div class="py-3">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-12 col-md-12 mb-4 text-center">
-                        <div class="card">
-                            <div class="card-body">
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-12 col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
                                 <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
-                                <p class="card-text">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quibusdam ducimus quidem vero iure ex eius, quae eaque possimus eligendi et placeat nostrum inventore rerum blanditiis deleniti ipsam neque optio?
+                                <p>
+                                    <h1>Hi, I'am
+                                        <span class="text-primary">amet consectetur</span>
+                                    </h1>
+                                    adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                 </p>
-                                <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-outline-primary">New Post</a>
-                                <a href="" class="btn btn-outline-primary">Follow</a>
+                                <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                <a href="" class="btn btn-primary  btn-sm">Follow</a>    
                             </div>
                         </div>
                     </div>
-                    @foreach ($items as $item)
-                        <div class="col-6 col-md-4 mb-4">
-                            <div class="card shadow">
-                                <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ Str::limit($item->content, 20) }}'" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">
-                                        {{ Str::limit($item->content, 100) }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
                 </div>
             </div>
+            @foreach ($items as $item)
+                <div class="content col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&theme=vine&text='{{ $item->title }}'" alt="">
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ Str::limit($item->content, 100) }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -43,22 +51,33 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create Post</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form action="{{route('post.store')}}" method="post">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" name="content" id="content" class="form-control @error('content') is-invalid  @enderror" value="{{ old('content') ? old('content') : ''}}">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid  @enderror" value="{{ old('title') ? old('title') : $faker->sentence}}">
+                        @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea name="content" cols="30" rows="5" class="form-control @error('content') is-invalid  @enderror" >{{ old('content') ? old('content') : $faker->text($maxNbChars = 200)}}</textarea>
                         @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-block btn-outline-primary">Publish</button>
+                    <button type="submit" class="btn btn-primary">Publish</button>
                 </form>
             </div>
         </div>
