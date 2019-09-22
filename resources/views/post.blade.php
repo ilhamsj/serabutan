@@ -25,7 +25,7 @@
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
                                     @guest
-                                        <a href="#pcontent" class="btn btn-primary  btn-sm">Follow</a>
+                                        <a href="#content" class="btn btn-primary  btn-sm">Follow</a>
                                     @else
                                         <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
                                     @endguest 
@@ -45,7 +45,7 @@
                 @endif
 
                 @foreach ($items as $item)
-                    <div class="content col-6 col-md-4 mb-4">
+                    <div id="content" class="content col-6 col-md-4 mb-4">
                         <div class="card">
                             <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
                             <div class="card-body">
