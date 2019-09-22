@@ -24,13 +24,17 @@
                                         </h1>
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
-                                    <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
-                                    <a href="" class="btn btn-primary  btn-sm">Follow</a>    
+                                    @guest
+                                        <a href="#pcontent" class="btn btn-primary  btn-sm">Follow</a>
+                                    @else
+                                        <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                    @endguest 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 @if (session('status'))
                 <div class="col-12">
                     <div class="alert alert-success" role="alert">
