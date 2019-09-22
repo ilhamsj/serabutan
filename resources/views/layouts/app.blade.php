@@ -90,17 +90,9 @@
     </div>
     <script src="{{ secure_asset('js/app.js')}}"></script>
     <script>
-        $('.card-body').hide();
-        $('.card-body:first-child').show();
-        $('.card-img-top').click(function (e) { 
-            e.preventDefault();
-            $(this).next().slideToggle();
-        });
-
         $(".alert").delay(2000).slideUp(200, function() {
             $(this).alert('close');
         });
-
     </script>
     @stack('scripts')
 </body>

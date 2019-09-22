@@ -28,6 +28,7 @@
                                         <a href="#content" class="btn btn-primary  btn-sm">Follow</a>
                                     @else
                                         <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                        @include('_create')
                                     @endguest 
                                 </div>
                             </div>
@@ -48,7 +49,7 @@
                     <div id="content" class="content col-6 col-md-4 mb-4">
                         <div class="card">
                             <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
-                            <div class="card-body">
+                            <div class="card-body collapse">
                                 <p class="card-text">
                                     {{ Str::limit($item->content, 100) }}
                                 </p>
@@ -63,44 +64,15 @@
         </div>
     </div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Create Post</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('post.store')}}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid  @enderror" value="{{ old('title') ? old('title') : $faker->sentence}}">
-                        @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea name="content" cols="30" rows="5" class="form-control @error('content') is-invalid  @enderror" >{{ old('content') ? old('content') : $faker->text($maxNbChars = 200)}}</textarea>
-                        @error('content')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary">Publish</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 @endsection
+
+@push('scripts')
+    <script>
+        $('.card-img-top').hover(function () {
+            $(this).next().slideToggle();
+            }, function () {
+            $(this).next().slideToggle();
+            }
+        );
+    </script>
+@endpush
