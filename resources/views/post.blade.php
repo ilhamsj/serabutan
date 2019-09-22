@@ -44,18 +44,24 @@
                     </div>
                 </div>
                 @endif
-
+            </div>
+            <div class="row align-items-center">
                 @foreach ($items as $item)
-                    <div id="content" class="content col-6 col-md-4 mb-4">
-                        <div class="card">
-                            <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
-                            <div class="card-body collapse">
-                                <p class="card-text">
-                                    {{ Str::limit($item->content, 100) }}
-                                </p>
+                <div id="content" class="content col-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
+                        <div class="card-body collapse">
+                            <div class="row align-items-center">
+                                <div class="col col-md">
+                                    <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <a href="">{{ $item->user->name }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
                 <div class="col-12">
                     {{$items->links()}}
@@ -71,7 +77,7 @@
         $('.card-img-top').hover(function () {
             $(this).next().slideToggle();
             }, function () {
-            $(this).next().slideToggle();
+                $(this).next().slideToggle();
             }
         );
     </script>
