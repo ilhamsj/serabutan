@@ -20,7 +20,7 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
                                         <h1>Hi, I'am
-                                            <span class="text-primary">amet consectetur</span>
+                                            <span class="text-primary">{{$faker->name}}</span>
                                         </h1>
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
@@ -44,18 +44,23 @@
                     </div>
                 </div>
                 @endif
+
+                <div class="col-12 mb-4">
+                    <a href="" id="displayGrid" class="btn btn-primary btn-sm">Display Grid</a>
+                </div>
             </div>
+
             <div class="row align-items-center">
                 @foreach ($items as $item)
-                <div id="content" class="content col-6 col-md-4 mb-4">
+                <div class="content col-6 col-md-4 mb-4">
                     <div class="card">
                         <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
                         <div class="card-body collapse">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center justify-content-between">
                                 <div class="col col-md">
                                     <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
                                 </div>
-                                <div class="col-12 col-md-9">
+                                <div class="people col col-md-9">
                                     <a href="">{{ $item->user->name }}</a>
                                 </div>
                             </div>
@@ -80,5 +85,12 @@
                 $(this).next().slideToggle();
             }
         );
+
+        $('#displayGrid').click(function (e) { 
+            e.preventDefault();
+            // $('.content').removeClass('col-6');
+            // $('.people').removeClass('col-12');
+            $('.content').toggleClass('col-6', 'col-12');
+        });
     </script>
 @endpush
