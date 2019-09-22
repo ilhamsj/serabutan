@@ -38,6 +38,11 @@
             e.preventDefault();
             $(this).next().slideToggle();
         });
+
+        $(".alert").delay(2000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+
     </script>
     @stack('scripts')
 </body>

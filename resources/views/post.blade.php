@@ -10,7 +10,7 @@
 <div class="row justify-content-center">
     <div class="col-md-10">
         <div class="row">
-            <div class="col-12 col-md-12 mb-4">
+            <div class="col-12 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -29,6 +29,15 @@
                     </div>
                 </div>
             </div>
+            @if (session('status'))
+            <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                    <strong>{{ session('status') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+            </div>
+            @endif
+
             @foreach ($items as $item)
                 <div class="content col-6 col-md-4 mb-4">
                     <div class="card">
@@ -41,6 +50,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="col-12">
+                {{$items->links()}}
+            </div>
         </div>
     </div>
 </div>

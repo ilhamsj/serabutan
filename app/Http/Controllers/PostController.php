@@ -26,7 +26,9 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         Post::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->with([
+            'status' => 'Create Success'
+        ]);
     }
 
     public function show($id)

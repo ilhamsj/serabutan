@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('post', 'PostController');
+Auth::routes();
+
+Route::get('/home', 'PostController@index')->name('home');
