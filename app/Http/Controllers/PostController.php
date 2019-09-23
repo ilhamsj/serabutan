@@ -52,6 +52,11 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        //
+        $item = \App\Post::find($id);
+        $item->delete();
+        
+        return redirect()->back()->with([
+            'status' =>  $item->title . ' Delete Success'
+        ]);
     }
 }

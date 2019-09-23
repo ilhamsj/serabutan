@@ -70,6 +70,24 @@
                                 </div>
                             </div>
                         </div>
+                        @auth
+                            @if ( $item->id == Auth::user()->id)
+                            <div class="card-footer">
+                                <a class="text-danger" href="">
+                                    <i data-feather="edit"></i>
+                                </a>
+                                <a class="text-danger" href="{{ route('post.destroy', $post->id)}}"
+                                        onclick="event.preventDefault();
+                                                document.getElementById('delete-form').submit();">
+                                    <i data-feather="trash"></i>
+                                </a>
+                                <form id="delete-form" action="{{ route('post.destroy', $post->id)}}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
+                            </div>
+                            @endif
+                        @endauth
                     </div>
                 </div>
                 @empty
