@@ -30,7 +30,9 @@
                                         </a>
                                     @else
                                         @if ( $item->id == Auth::user()->id)
-                                            <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
+                                            <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">
+                                                <i data-feather="plus"></i>
+                                            </a>
                                             @include('_create')
                                         @endif
                                     @endguest 
