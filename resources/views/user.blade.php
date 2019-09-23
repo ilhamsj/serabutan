@@ -73,7 +73,7 @@
                         @auth
                             @if ( $item->id == Auth::user()->id)
                             <div class="card-footer">
-                                <a class="text-danger" href="">
+                                <a class="text-secondary" href="">
                                     <i data-feather="edit"></i>
                                 </a>
                                 <a class="text-danger" href="{{ route('post.destroy', $post->id)}}"
