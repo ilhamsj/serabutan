@@ -64,7 +64,7 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
                                 </div>
                                 <div class="people col col-md-9">
-                                    <a href="{{ route('post.show', $item->user_id) }}">{{ $item->user->name }}</a>
+                                    <a href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
                                 </div>
                             </div>
                         </div>

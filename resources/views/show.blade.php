@@ -20,7 +20,7 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
                                         <h1>Hi, I'am
-                                            <span class="text-primary">{{ $items->first()->user->name }}</span>
+                                            <span class="text-primary">{{ $item->name }}</span>
                                         </h1>
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
@@ -29,7 +29,7 @@
                                             <i data-feather="heart"></i>
                                         </a>
                                     @else
-                                        @if ( $items->first()->user->id == Auth::user()->id)
+                                        @if ( $item->id == Auth::user()->id)
                                             <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">New Post</a>
                                             @include('_create')
                                         @endif
@@ -54,26 +54,29 @@
             </div>
 
             <div class="row align-items-center">
-                @foreach ($items as $item)
+                @forelse ($item->Post as $post)
                 <div class="content col-6 col-md-4 mb-4">
                     <div class="card">
-                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
+                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $post->title }}'" alt="">
                         <div class="card-body collapse">
                             <div class="row align-items-center justify-content-between">
                                 <div class="col col-md">
                                     <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
                                 </div>
                                 <div class="people col col-md-9">
-                                    <a href="">{{ $item->user->name }}</a>
+                                    <a href="">{{ $item->name }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
-                <div class="col-12">
-                    {{$items->links()}}
+                @empty
+                <div class="content col-12">
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/400x100?auto=yes&random=yes&text=Layanan tidak ditemukan" alt="">
+                    </div>
                 </div>
+                @endforelse
             </div>
         </div>
     </div>

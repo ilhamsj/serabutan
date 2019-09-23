@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     public function __construct() {
         $this->middleware('auth')->only('store');
     }
-
+    
     public function index()
     {
         return view('post')->with([
@@ -37,7 +37,11 @@ class PostController extends Controller
 
     public function show($id)
     {
+        $user = \App\User::where('username', $id)->first();
 
+        return view('show')->with([
+            'item' => $user,
+        ]);
     }
 
     public function edit($id)
