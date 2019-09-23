@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,9 +12,7 @@ class UserController extends Controller
     
     public function index()
     {
-        return view('post')->with([
-            'items' => Post::orderBy('id', 'desc')->paginate()
-        ]);
+        //
     }
 
     public function create()
@@ -25,21 +22,14 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-        Post::create($request->all());
-        return redirect()->back()->with([
-            'status' => 'Create Success'
-        ]);
+        //
     }
 
-    public function show($id)
+    public function show($username)
     {
-        $user = \App\User::where('username', $id)->first();
+        $user = \App\User::where('username', $username)->first();
 
-        return view('show')->with([
+        return view('user')->with([
             'item' => $user,
         ]);
     }
