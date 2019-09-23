@@ -20,9 +20,16 @@
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
                                         <h1>
-                                            Hi, I'am <a href="{{route('user.show', $items->first()->user->username)}}">{{$items->first()->user->name}}</a>
+                                            Hi, I'am <a href="{{route('user.show', $items->first()->user->username)}}">{{Str::title($items->first()->user->name)}}</a>
                                         </h1>
-                                        adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
+                                        <blockquote class="blockquote mb-0">
+                                            <p>
+                                                {{$items->first()->content}}
+                                            </p>
+                                            <footer class="blockquote-footer">
+                                                {{ Str::title($items->first()->title)}}
+                                            </footer>
+                                        </blockquote>
                                     </p>
                                     @guest
                                     <a href="#content" class="btn btn-indigo  btn-sm">
@@ -55,7 +62,7 @@
                 <div class="col">
                     <div class="row align-items-center">
                         <div class="form-group col">
-                            <h4 class="text-muted">Cari Pekerjaan</h4>
+                            <h4 class="text-muted">Recently Updated</h4>
                         </div>
                         <div class="form-group col col-md-3">
                             <div class="form-group">

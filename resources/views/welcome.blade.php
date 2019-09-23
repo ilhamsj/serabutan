@@ -9,9 +9,9 @@
         <div class="col-12 col-sm">
             <h1>
                 Selamat datang di, 
-                <a href="{{ route('home')}}">Serabutan</a>
+                <a href="{{ route('home')}}">Leonyx Space</a>
             </h1>
-            <blockquote class="animate bounce blockquote mb-0">
+            <blockquote class="blockquote mb-0">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
                 </p>
