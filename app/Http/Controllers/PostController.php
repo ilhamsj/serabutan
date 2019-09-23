@@ -31,7 +31,7 @@ class PostController extends Controller
         ]);
         Post::create($request->all());
         return redirect()->back()->with([
-            'status' => 'Create Success'
+            'status' => $request->title . ' Create Success'
         ]);
     }
 
