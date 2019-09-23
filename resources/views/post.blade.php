@@ -15,7 +15,7 @@
                 <div class="col-12 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center text-center">
                                 <div class="col">
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
@@ -32,7 +32,6 @@
                                         <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">
                                             <i data-feather="plus"></i>
                                         </a>
-                                        @include('_create')
                                     @endguest 
                                     <a href="" id="displayGrid" class="btn btn-primary btn-sm">
                                         <i data-feather="grid"></i>
@@ -42,6 +41,10 @@
                         </div>
                     </div>
                 </div>
+
+                @auth
+                    @include('_create')
+                @endauth
 
                 @if (session('status'))
                 <div class="col-12">
