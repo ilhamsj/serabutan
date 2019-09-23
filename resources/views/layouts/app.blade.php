@@ -98,7 +98,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <script>
-        feather.replace()
+        // feather.replace()
 
         $(".alert").delay(2000).slideUp(200, function() {
             $(this).alert('close');
