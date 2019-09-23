@@ -15,12 +15,12 @@
                 <div class="col-12 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row align-items-center text-center">
+                            <div class="row align-items-center">
                                 <div class="col">
                                     <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
-                                        <h1>Hi, I'am
-                                            <span class="text-primary">{{$faker->name}}</span>
+                                        <h1>
+                                            Hi, I'am <a href="{{route('user.show', $items->first()->user->username)}}">{{$items->first()->user->name}}</a>
                                         </h1>
                                         adipisicing elit. Ipsum repellat perspiciatis rerum molestias. Molestiae debitis alias eius sunt pariatur facilis et suscipit, assumenda nihil tenetur maxime ipsam consequatur, ratione commodi.
                                     </p>
@@ -32,6 +32,7 @@
                                         <a href="" data-toggle="modal" data-target="#modelId" class="btn btn-indigo btn-sm">
                                             <i data-feather="plus"></i>
                                         </a>
+                                        @include('_create')
                                     @endguest 
                                     <a href="" id="displayGrid" class="btn btn-primary btn-sm">
                                         <i data-feather="grid"></i>
@@ -42,9 +43,6 @@
                     </div>
                 </div>
 
-                @auth
-                    @include('_create')
-                @endauth
 
                 @if (session('status'))
                 <div class="col-12">
@@ -54,6 +52,23 @@
                     </div>
                 </div>
                 @endif
+                <div class="col">
+                    <div class="row align-items-center">
+                        <div class="form-group col">
+                            <h4 class="text-muted">Cari Pekerjaan</h4>
+                        </div>
+                        <div class="form-group col col-md-3">
+                            <div class="form-group">
+                              <select class="form-control" name="sprt" id="">
+                                <option>Terbaru</option>
+                                <option>Ulasan</option>
+                                <option>Popularitas</option>
+                              </select>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
             </div>
 
             <div class="row align-items-center">
@@ -74,9 +89,6 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col-12">
-                    {{$items->links()}}
-                </div>
             </div>
         </div>
     </div>

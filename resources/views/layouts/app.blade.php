@@ -96,9 +96,25 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            <div class="container py-4">
+                <div class="row text-center justify-content-center align-items-center">
+                    <div class="col-12">
+                        Made with <u>love</u>
+                        in <u>Yogyakarta</u>
+                        {{date('Y')}}
+                    </div>
+                    <div class="col">
+                        <a href=""><i data-feather='facebook'></i></a>
+                        <a href=""><i data-feather='twitter'></i></a>
+                        <a href=""><i data-feather='instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="{{ secure_asset('js/app.js')}}"></script>
-
     <script>
         $(".alert").delay(2000).slideUp(200, function() {
             $(this).alert('close');
