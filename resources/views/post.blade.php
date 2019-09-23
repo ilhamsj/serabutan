@@ -78,20 +78,17 @@
                 </div>
             </div>
 
-            <div class="row align-items-center">
+            <div class="row">
                 @foreach ($items as $item)
                 <div class="content col-6 col-md-4 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $item->title }}'" alt="">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ 'storage/'.$item->image }}" alt="">
                         <div class="card-body collapse">
-                            <div class="row align-items-center justify-content-between">
-                                <div class="col col-md">
-                                    <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">
-                                </div>
-                                <div class="people col col-md-9">
-                                    <a href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
-                                </div>
-                            </div>
+                            <h5 class="card-title">
+                                <a href="{{route('post.show', Str::slug($item->title))}}">{{$item->title}}</a>
+                            </h5>
+                            <a class="card-link" href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
+
                         </div>
                     </div>
                 </div>

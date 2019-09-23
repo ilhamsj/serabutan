@@ -20,3 +20,7 @@ Route::resource('user', 'UserController');
 Auth::routes();
 
 Route::get('/home', 'PostController@index')->name('home');
+// Route::get('/public/image/{name}', function() {
+//     dd($name);
+// });
+

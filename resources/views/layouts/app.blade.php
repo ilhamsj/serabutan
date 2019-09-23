@@ -17,9 +17,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-        .h-100 {
+        /* .h-100 {
             min-height: 100vh;
-        }
+        } */
 
         .btn-x {
             padding: 0.275rem 1.75rem;

@@ -24,12 +24,22 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'title' => 'required',
             'content' => 'required',
+            'image' => 'required|image|max:2000'
         ]);
-        Post::create($request->all());
+
+        Post::create([
+            'user_id' => \Auth::user()->id,
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $request->file('image')->hashName(),
+        ]);
+
+        $path = $request->file('image')->store('public');
+
         return redirect()->back()->with([
             'status' => $request->title . ' Create Success'
         ]);
