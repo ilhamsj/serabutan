@@ -85,12 +85,10 @@
 
 @push('scripts')
     <script>
-        $('.card-img-top').hover(function () {
+        $('.card-img-top').click(function (e) { 
+            e.preventDefault();
             $(this).next().slideToggle();
-            }, function () {
-                $(this).next().slideToggle();
-            }
-        );
+        });
 
         $('#displayGrid').click(function (e) { 
             e.preventDefault();
