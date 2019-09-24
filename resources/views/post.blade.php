@@ -91,9 +91,9 @@
                         <img class="card-img-top" src="{{ 'storage/'.$item->image }}" alt="">
                         <div class="card-body collapse">
                             <h5 class="card-title">
-                                <a href="{{route('post.show', Str::slug($item->title))}}">{{$item->title}}</a>
+                                <a href="{{route('post.show', $item->id)}}">{{$item->title}}</a>
                             </h5>
-                            <a class="card-link" href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
+                            <a class="text-muted" href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
 
                         </div>
                     </div>
