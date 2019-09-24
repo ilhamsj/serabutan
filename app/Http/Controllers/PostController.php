@@ -48,7 +48,9 @@ class PostController extends Controller
 
     public function show($id)
     {
-        return $id;
+        return view('show')->with([
+            'item' => Post::find($id)
+        ]);
     }
 
     public function edit($id)

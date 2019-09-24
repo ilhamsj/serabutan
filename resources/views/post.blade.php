@@ -70,31 +70,24 @@
                         <div class="form-group col">
                             <h4 class="text-muted">Recently Updated</h4>
                         </div>
-                        <div class="form-group col col-md-3">
-                            <div class="form-group">
-                              <select class="form-control" name="sprt" id="">
-                                <option>Terbaru</option>
-                                <option>Ulasan</option>
-                                <option>Popularitas</option>
-                              </select>
-                            </div>
+                        <div class="form-group col col-md-3 text-right">
+                            <a href="">Lihat Selengkapnya</a>
                         </div>
                     
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row align-items-center">
                 @foreach ($items as $item)
                 <div class="content col-6 col-md-4 mb-4">
-                    <div class="card h-100">
+                    <div class="card">
                         <img class="card-img-top" src="{{ 'storage/'.$item->image }}" alt="">
                         <div class="card-body collapse">
                             <h5 class="card-title">
                                 <a href="{{route('post.show', $item->id)}}">{{$item->title}}</a>
                             </h5>
                             <a class="text-muted" href="{{ route('user.show', Str::slug($item->user->username)) }}">{{ $item->user->name }}</a>
-
                         </div>
                     </div>
                 </div>

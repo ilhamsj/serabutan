@@ -13,7 +13,9 @@
         .h-100 {
             min-height: 100vh;
         }
+
     </style>
+    @stack('styles')
 </head>
 <body>
     @yield('content')
