@@ -59,8 +59,9 @@
                 @forelse ($item->Post as $post)
                 <div class="content col-6 col-md-4 mb-4">
                     <div class="card">
-                        <img class="card-img-top" data-src="holder.js/400x400?auto=yes&random=yes&text='{{ $post->title }}'" alt="">
-                        <div class="card-body collapse">
+                       
+                        <img class="card-img-top" src="../storage/{{$post->image}}" alt="">
+                        <div class="card-body">
                             <div class="row align-items-center justify-content-between">
                                 <div class="col col-md">
                                     <img class="img-fluid rounded-circle" data-src="holder.js/50x50?auto=yes&random=yes" alt="">

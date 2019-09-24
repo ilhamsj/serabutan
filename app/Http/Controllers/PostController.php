@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -65,6 +66,12 @@ class PostController extends Controller
         $item = \App\Post::find($id);
         $item->delete();
         
+        $file = 'public/'.$item->image;
+        $cek = Storage::exists($file);
+        if ($cek == true) {
+            Storage::delete($file);
+        }
+
         return redirect()->back()->with([
             'status' =>  $item->title . ' Delete Success'
         ]);
