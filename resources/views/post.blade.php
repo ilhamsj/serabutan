@@ -17,19 +17,25 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
                                     <p>
-                                        <h1>
-                                            Hi, I'am <a href="{{route('user.show', $items->first()->user->username)}}">{{Str::title($items->first()->user->name)}}</a>
-                                        </h1>
-                                        <blockquote class="blockquote mb-0">
-                                            <p>
-                                                {{$items->first()->content}}
-                                            </p>
-                                            <footer class="blockquote-footer">
-                                                {{ Str::title($items->first()->title)}}
-                                            </footer>
-                                        </blockquote>
+                                        @empty(count($items))
+                                            <h1>
+                                                Hi, Selamat datang di Leonyx Space
+                                            </h1>
+                                        @else
+                                            <img class="img-fluid rounded-circle" data-src="holder.js/100x100?auto=yes&random=yes&textmode=exact" alt="">
+                                            <h1>
+                                                Hi, I'am <a href="{{route('user.show', $items->first()->user->username)}}">{{Str::title($items->first()->user->name)}}</a>
+                                            </h1>
+                                            <blockquote class="blockquote mb-0">
+                                                <p>
+                                                    {{$items->first()->content}}
+                                                </p>
+                                                <footer class="blockquote-footer">
+                                                    {{ Str::title($items->first()->title)}}
+                                                </footer>
+                                            </blockquote>
+                                        @endempty
                                     </p>
                                     @guest
                                     <a href="#content" class="btn btn-indigo  btn-sm">
