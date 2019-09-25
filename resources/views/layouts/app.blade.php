@@ -52,10 +52,16 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Cari Pekerjaan</a>
+                            <a class="nav-link" href="{{ route('home') }}">Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Cari Bantuan</a>
+                            <a class="nav-link" href="{{ route('home') }}">Kegiatan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Agenda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Gallery</a>
                         </li>
                         @guest
                             <li class="nav-item">

@@ -99,6 +99,8 @@
 </div>
 @endsection
 
+
+
 @push('scripts')
     <script>
         $('.card-img-top').click(function (e) { 
