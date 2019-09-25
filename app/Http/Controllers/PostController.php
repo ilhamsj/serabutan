@@ -29,7 +29,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required|image|max:2000'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         Post::create([
@@ -37,6 +37,7 @@ class PostController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'image' => $request->file('image')->hashName(),
+            'category' => $request->category,
         ]);
 
         $path = $request->file('image')->store('public');
@@ -48,7 +49,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-        return view('show')->with([
+        return view('pages.post.show')->with([
             'item' => Post::find($id)
         ]);
     }

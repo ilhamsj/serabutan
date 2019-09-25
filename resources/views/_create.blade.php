@@ -36,7 +36,6 @@
                             <img class="img-fluid" id="preview" src="" alt="image" title=''>
                         </div>
     
-
                         <div class="form-group"> 
                             <div class="custom-file">
                                 <input type="file" name="image" id="inputGroupFile01" class="imgInp custom-file-input @error('image') is-invalid  @enderror" aria-describedby="inputGroupFileAddon01">
@@ -49,6 +48,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" name="category" id="category" class="form-control @error('category') is-invalid  @enderror" value="{{ old('category') ? old('category') : $faker->sentence}}">
+                            @error('category')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+    
                         <button type="submit" class="btn btn-primary">Publish</button>
                     </form>
                 </div>
